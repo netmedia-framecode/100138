@@ -40,7 +40,7 @@ require_once("../templates/views_top.php"); ?>
                   <tr>
                     <th scope="row" style="width: 50px;">
                       <div class="form-check text-center">
-                        <input class="form-check-input shadow border-0" type="checkbox" name="id_alternatif[]" value="<?= $row['id_alternatif'] ?>" style="transform: scale(1.5);">
+                        <input class="form-check-input shadow border-0" type="checkbox" name="id_alternatif[]" value="<?= $row['id_alternatif'] ?>" style="transform: scale(1.5);" checked>
                       </div>
                     </th>
                     <td><img src="<?= $row["image"] ?>" style="width: 50px;height: 50px;margin-right: 10px;" alt="Image"><?= $row["nama_kafe"] ?></td>
