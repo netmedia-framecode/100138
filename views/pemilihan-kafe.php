@@ -17,6 +17,11 @@ require_once("../templates/views_top.php"); ?>
           <table class="table table-bordered text-dark" id="dataTable" width="100%" cellspacing="0">
             <thead>
               <tr>
+                <th scope="col" class="text-center">
+                  <div class="form-check">
+                    <input class="form-check-input shadow border-0" type="checkbox" id="checkAll" style="margin-top: -20px; margin-left: -12px; transform: scale(1.5);">
+                  </div>
+                </th>
                 <th scope="col" class="text-center">Pilih</th>
                 <th scope="col" class="text-center">Nama Kafe</th>
                 <th scope="col" class="text-center">Telp</th>
@@ -26,7 +31,6 @@ require_once("../templates/views_top.php"); ?>
             </thead>
             <tfoot>
               <tr>
-                <th class="text-center">Pilih</th>
                 <th class="text-center">Nama Kafe</th>
                 <th class="text-center">Telp</th>
                 <th class="text-center">Alamat</th>
@@ -40,7 +44,7 @@ require_once("../templates/views_top.php"); ?>
                   <tr>
                     <th scope="row" style="width: 50px;">
                       <div class="form-check text-center">
-                        <input class="form-check-input shadow border-0" type="checkbox" name="id_alternatif[]" value="<?= $row['id_alternatif'] ?>" style="transform: scale(1.5);" checked>
+                        <input class="form-check-input shadow border-0" type="checkbox" name="id_alternatif[]" value="<?= $row['id_alternatif'] ?>" style="transform: scale(1.5);">
                       </div>
                     </th>
                     <td><img src="<?= $row["image"] ?>" style="width: 50px;height: 50px;margin-right: 10px;" alt="Image"><?= $row["nama_kafe"] ?></td>
@@ -52,8 +56,26 @@ require_once("../templates/views_top.php"); ?>
                 }
               } ?>
             </tbody>
+            <script>
+              document.addEventListener("DOMContentLoaded", function() {
+                const checkAll = document.getElementById('checkAll');
+                checkAll.addEventListener('change', function() {
+                  const checkboxes = document.querySelectorAll('tbody input[type="checkbox"]');
+                  checkboxes.forEach(function(checkbox) {
+                    checkbox.checked = checkAll.checked;
+                  });
+                });
+              });
+            </script>
           </table>
-          <button type="submit" name="perhitungan" class="d-none d-sm-inline-block btn btn-primary shadow-sm mt-3"><i class="bi bi-calculator"></i> Mulai Perhitungan</button>
+          <div class="d-flex">
+            <button type="submit" name="perhitungan" class="d-none d-sm-inline-block btn btn-primary shadow-sm mt-3"><i class="bi bi-calculator"></i> Mulai Perhitungan</button>
+            <div style="margin-left: 10px;">
+              <a style="cursor: pointer;" onclick="window.open('../', '_blank')" class="btn btn-success shadow border-0 mt-3" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cetak hasil perhitungan akhir ke excel">
+                <i class="fa fa-arrow-left"></i> Beranda
+              </a>
+            </div>
+          </div>
         </div>
       </form>
     </div>

@@ -203,11 +203,6 @@ require_once("../templates/views_top.php"); ?>
             </button>
           </form>
         </div>
-        <div style="margin-left: 10px;">
-          <a style="cursor: pointer;" onclick="window.open('../', '_blank')" class="btn btn-success shadow border-0" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Cetak hasil perhitungan akhir ke excel">
-            <i class="fa fa-arrow-left"></i> Beranda
-          </a>
-        </div>
       </div>
     </div>
   </div>
